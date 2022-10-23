@@ -31,7 +31,7 @@ public class StreamApiExamples {
 
     @Test
     public void sortHighToLow() {
-        List<TickerData> highToLow = getTickers().stream().filter(x -> x.getSymbol().endsWith("USDT")).sorted((o1, o2) -> o2.getChangeRate().compareTo(o1.getChangeRate())).toList();
+        List<TickerData> highToLow = getTickers().stream().filter(x -> x.getSymbol().endsWith("USDT")).sorted((o1, o2) -> o2.getChangeRate().compareTo(o1.getChangeRate())).collect(Collectors.toList());
         List<TickerData> top10 = highToLow.stream().limit(10).collect(Collectors.toList());
         int t = 9;
     }
