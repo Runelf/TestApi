@@ -26,6 +26,24 @@ dependencies {
     testImplementation 'io.qameta.allure:allure-selenide:2.12.1'
 }
 
+def kukoinTest = tasks.register("kukoinTests", Test) {
+    useJUnitPlatform {
+        includeTags "Kukoin"
+    }
+}
+
+def reqresWithPojoTest = tasks.register("reqresWithPojoTests", Test) {
+    useJUnitPlatform {
+        includeTags "ReqresWithPojo"
+    }
+}
+
+def reqresWithoutPojoTest = tasks.register("reqresWithoutPojoTests", Test) {
+    useJUnitPlatform {
+        includeTags "ReqresWithoutPojo"
+    }
+}
+
 test {
     useJUnitPlatform()
 }

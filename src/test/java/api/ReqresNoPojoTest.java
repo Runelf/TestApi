@@ -2,6 +2,7 @@ package api;
 
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
@@ -13,6 +14,7 @@ import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.notNullValue;
 import static org.junit.jupiter.api.Assertions.*;
 
+@Tag("ReqresWithoutPojo")
 public class ReqresNoPojoTest {
     private final static String URL = "https://reqres.in/";
     @Test

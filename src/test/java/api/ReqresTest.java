@@ -1,5 +1,6 @@
 package api;
 
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import java.time.Clock;
@@ -10,6 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import static io.restassured.RestAssured.given;
 
+@Tag("ReqresWithPojo")
 public class ReqresTest {
     private final static String URL = "https://reqres.in/";
 
