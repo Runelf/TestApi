@@ -24,7 +24,7 @@ node {
 
             stage("test") {
                 try {
-                    labelledShell(label: "Run test", script: "chmod +x gradlew ./gradlew -x test")
+                    labelledShell(label: "Run test", script: "gradle wrapper\n chmod +x gradlew \n./gradlew -x test")
                 } finally {
                     echo "some failed tests"
                 }
