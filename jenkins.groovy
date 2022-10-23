@@ -21,11 +21,11 @@ node {
 
         try {
 //            parallel getTestStages(["kukoinTests", "reqresWithPojoTests", "reqresWithoutPojoTests"])
-            stages["${tag}"] = {
-                runTestWithTag2(tag)
+            stage("test") {
+                runTestWithTag2()
             }
         } finally {
-            stage ("Allure") {
+            stage("Allure") {
                 generateAllure()
             }
         }
@@ -69,9 +69,9 @@ def runTestWithTag(String tag) {
     }
 }
 
-def runTestWithTag2(String tag) {
+def runTestWithTag2() {
     try {
-        labelledShell(label: "Run ${tag}", script: "chmod +x gradlew \n./gradlew -x test")
+        labelledShell(label: "Run test", script: "chmod +x gradlew \n./gradlew -x test")
     } finally {
         echo "some failed tests"
     }
