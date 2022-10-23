@@ -26,8 +26,8 @@ public class ReqresTest {
 //        users.forEach(user -> assertTrue(user.getAvatar().contains(user.getId().toString())));
 //        assertTrue(users.stream().allMatch(x -> x.getEmail().endsWith("@reqres.in")));
 
-        List<String> avatars = users.stream().map(UsersData::getAvatar).toList();
-        List<String> ids = users.stream().map(x -> x.getId().toString()).toList();
+        List<String> avatars = users.stream().map(UsersData::getAvatar).collect(Collectors.toList());
+        List<String> ids = users.stream().map(x -> x.getId().toString()).collect(Collectors.toList());
 
         for (int i = 0; i < avatars.size(); i++) {
             assertTrue(avatars.get(i).contains(ids.get(i)));
@@ -77,8 +77,8 @@ public class ReqresTest {
                 .then().log().all()
                 .extract().body().jsonPath().getList("data", ColorsData.class);
 
-        List<Integer> years = colors.stream().map(ColorsData::getYear).toList();
-        List<Integer> sortedYears = years.stream().sorted().toList();
+        List<Integer> years = colors.stream().map(ColorsData::getYear).collect(Collectors.toList());
+        List<Integer> sortedYears = years.stream().sorted().collect(Collectors.toList());
 
         assertEquals(sortedYears, years);
 
